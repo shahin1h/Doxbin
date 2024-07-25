@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block header %}
+    <h2 dir="auto">
+        <a href="{% url 'index' %}">
+            <button type="button" class="btn btn-outline-danger btn-lg">العودة للصفحة الرئيسية</button>
+        </a>
+    </h2>
+    
+    <hr>
+    <p> {{ doxes.created_at }} </p>
+    
+    <h1 dir="auto">{{ doxes.title }}</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="container text-center mt-4 " style="font-size: 30px">
+        <p dir="auto">{{ doxes.content }}</p>
+        <hr>
+    </div>
+
+{% endblock %}

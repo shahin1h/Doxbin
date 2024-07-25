@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/logo.png' %}">
+    {% if title %}
+        <title>Doxbin Arabia - {{ title }}</title>
+    {% else %}
+        <title>Doxbin Arabia</title>
+    {% endif %}
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Changa:wght@200..800&display=swap');
+
+    body {
+        font-family: 'Changa', serif;
+        font-size: 1em;
+    }
+
+    h1 {
+        padding-top: 8px;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+
+    }
+
+    a:hover {
+        color: #818181;
+    }
+
+
+    .table {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.4rem;
+    }
+</style>
+<body class="bg-black text-light">
+<header>
+    <div class="container">
+        <div class="col-12 pt-2 text-center align-content-center">
+            <img src="{% static 'images/logo.png' %}" alt="Doxbin Logo" width="300px">
+            {% block header %}
+            {% endblock %}
+        </div>
+    </div>
+</header>
+<section>
+    {% block content %}
+    {% endblock %}
+</section>
+</body>
+</html>

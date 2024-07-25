@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block header %}
+    <h1 class="text-center p-3" dir="auto">
+        هنا يمكنك مشاركة التسريبات يمكنك<br> مشاركة (رقم هاتف - عنوان - اسم - يوزر حساب) مثال: (انستغرام - سنابشات -
+        تلجرام - فيسبوك) عن الشخص المراد التسريب عنه<br>
+        لاتقم بمشاركة معلوماتك الخاصة اكتفي بمشاركة معلومات الشخص فقط
+    </h1>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <form action="{% url 'new' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group mx-auto mt-3" style="max-width: 600px;">
+                {{ form.title }}
+                {{ form.content }}
+            </div>
+            <div class="d-flex justify-content-center mt-4">
+                <button type="submit" class="btn btn-outline-danger col-5 m-3">نشر</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

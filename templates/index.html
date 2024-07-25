@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+
+{% block header %}
+    <h1 class="pt-4">Doxbin Arabia</h1>
+    <h2 class="col-12 text-center pt-4" dir="auto">
+        موقع Doxbin Arabia نسخة عربية من الموقع الاصلي Doxbin يمكنك خلال هذا الموقع
+        مشاركة التسريبات مثال ( متحرشين الاطفال - المغتصبين - العاهرات ) اي شئ
+        لايوجد رقابة في النشر على هذا الموقع يمكنك التصرف بكامل حريتك<br>
+    </h2>
+
+    <a href="{% url 'new' %}">
+        <button type="button" class="btn btn-outline-danger btn-lg"> شارك تسريبات عن شخص ما</button>
+    </a>
+
+{% endblock %}
+
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="d-flex justify-content-center">
+            <div class="table-responsive" style="width: 100%; max-width: 90%;">
+                <table class="table table-hover table-dark table-striped text-center">
+                    <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for dox in doxes %}
+                        <tr>
+                            <td><a href="{{ 'dox/'|add:dox.slug }}"
+                                   class="text-light text-decoration-none">{{ dox.title }}</a></td>
+                            <td>{{ dox.created_at|date:"m-y" }}</td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="2">No Dox Available For Now.</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+
